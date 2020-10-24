@@ -30,6 +30,9 @@ wget -O "$TEMP_DEB" 'https://github.com/azubieta/appimage-gnome-thumbnailer/rele
 sudo dpkg -i "$TEMP_DEB"
 rm -f "$TEMP_DEB"
 
+#Copy required script to tmp
+cp install_light_exclusive.sh /tmp
+
 #Install de-hardcoded theme switcher
 cd /tmp
 git clone https://github.com/Yuri6037/theme-switcher.git
@@ -43,3 +46,4 @@ rm -rf theme-switcher
 #Install exclusive light theme
 bash install_light_exclusive.sh
 
+rm /tmp/install_light_exclusive.sh
