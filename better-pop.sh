@@ -40,6 +40,7 @@ cd theme-switcher
 sudo cp libpop_theme_switcher.so /usr/lib/libpop_theme_switcher.so
 echo "libpop-theme-switcher hold" | sudo dpkg --set-selections
 sudo cp *.json /usr/share/themes
+sudo cp *.svg /usr/share/themes
 cd ..
 rm -rf theme-switcher
 
