@@ -21,8 +21,8 @@
 
 #Make PopOS a better OS
 
-#Install python-nautilus extension support
-sudo apt install python-nautilus
+#Install python3-nautilus extension support
+sudo apt install python3-nautilus
 
 #Install appimage thumbnailer
 TEMP_DEB="$(mktemp)"
