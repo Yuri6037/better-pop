@@ -21,6 +21,9 @@
 
 #Make PopOS a better OS
 
+#Enable minimize button
+gsettings set org.gnome.desktop.wm.preferences button-layout ':minimize,close'
+
 #Install python3-nautilus extension support
 sudo apt install python3-nautilus
 
