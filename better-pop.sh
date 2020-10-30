@@ -36,6 +36,9 @@ rm -f "$TEMP_DEB"
 #Copy required script to tmp
 cp install_light_exclusive.sh /tmp
 
+#Install dependency for de-hardcoded theme switcher
+sudo apt install gnome-shell-extensions
+
 #Install de-hardcoded theme switcher
 cd /tmp
 git clone https://github.com/Yuri6037/theme-switcher.git
