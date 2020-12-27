@@ -54,3 +54,10 @@ rm -rf theme-switcher
 bash install_light_exclusive.sh
 
 rm /tmp/install_light_exclusive.sh
+
+#Install rythmbox as default media player (GNOME Music is a peace of shit unable to read a fucking audio CD)
+sudo add-apt-repository ppa:ubuntuhandbook1/apps
+sudo apt update
+sudo apt install rhythmbox
+sudo apt autoremove --purge gnome-music
+
