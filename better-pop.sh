@@ -61,3 +61,14 @@ sudo apt update
 sudo apt install rhythmbox
 sudo apt autoremove --purge gnome-music
 
+#Pre-install the repeat-one-song plugin
+cd /tmp
+git clone https://github.com/edumucelli/repeat-one-song.git
+mkdir ~/.local/share/rhythmbox/plugins
+mkdir ~/.local/share/rhythmbox/plugins/repeat-one-song
+mv repeat-one-song/README.md ~/.local/share/rhythmbox/plugins/repeat-one-song
+mv repeat-one-song/*.png ~/.local/share/rhythmbox/plugins/repeat-one-song
+mv repeat-one-song/icon.svg ~/.local/share/rhythmbox/plugins/repeat-one-song
+mv repeat-one-song/repeat* ~/.local/share/rhythmbox/plugins/repeat-one-song
+cd ~
+rm -rf /tmp/repeat-one-song
