@@ -33,9 +33,6 @@ wget -O "$TEMP_DEB" 'https://github.com/azubieta/appimage-gnome-thumbnailer/rele
 sudo dpkg -i "$TEMP_DEB"
 rm -f "$TEMP_DEB"
 
-#Copy required script to tmp
-cp install_light_exclusive.sh /tmp
-
 #Install dependency for de-hardcoded theme switcher
 sudo apt install gnome-shell-extensions
 
@@ -49,11 +46,6 @@ sudo cp *.json /usr/share/themes
 sudo cp *.svg /usr/share/themes
 cd ..
 rm -rf theme-switcher
-
-#Install exclusive light theme
-bash install_light_exclusive.sh
-
-rm /tmp/install_light_exclusive.sh
 
 #Install rythmbox as default media player (GNOME Music is a peace of shit unable to read a fucking audio CD)
 sudo add-apt-repository ppa:ubuntuhandbook1/apps
