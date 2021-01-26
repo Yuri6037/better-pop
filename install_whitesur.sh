@@ -2,7 +2,7 @@
 sudo apt install sassc
 
 #Download and inject OSX theme
-git clone https://github.com/Yuri6037/WhiteSur-gtk-theme.git
+git clone https://github.com/vinceliuice/WhiteSur-gtk-theme.git
 cd WhiteSur-gtk-theme
 ./install.sh -i void -p 25 -c light --nautilus-use-colors
 sudo ./install.sh -g -c light
