@@ -33,19 +33,26 @@ wget -O "$TEMP_DEB" 'https://github.com/azubieta/appimage-gnome-thumbnailer/rele
 sudo dpkg -i "$TEMP_DEB"
 rm -f "$TEMP_DEB"
 
-#Install dependency for de-hardcoded theme switcher
+#Install some basic extensions
 sudo apt install gnome-shell-extensions
 
-#Install de-hardcoded theme switcher
+#Install the Tweaks System Menu to integrate Tweaks with the system
 cd /tmp
-git clone https://github.com/Yuri6037/theme-switcher.git
-cd theme-switcher
-sudo cp libpop_theme_switcher.so /usr/lib/libpop_theme_switcher.so
-echo "libpop-theme-switcher hold" | sudo dpkg --set-selections
-sudo cp *.json /usr/share/themes
-sudo cp *.svg /usr/share/themes
-cd ..
-rm -rf theme-switcher
+wget https://github.com/F-i-f/tweaks-system-menu/releases/latest/download/tweaks-system-menu@extensions.gnome-shell.fifi.org.v11.shell-extension.zip
+sudo unzip tweaks-system-menu@extensions.gnome-shell.fifi.org.v11.shell-extension.zip -d /usr/share/gnome-shell/extensions/tweaks-system-menu@extensions.gnome-shell.fifi.org.v11.shell-extension
+
+#Restart gnome shell
+killall -3 gnome-shell
+
+#Install gnome tweaks
+sudo apt install gnome-tweaks
+
+#Install the GNOME extensions app for all users
+sudo flatpak install org.gnome.Extensions
+
+#Enable some basic extensions
+gnome-extensions enable user-theme@gnome-shell-extensions.gcampax.github.com
+gnome-extensions enable tweaks-system-menu@extensions.gnome-shell.fifi.org.v11.shell-extension
 
 #Install rythmbox as default media player (GNOME Music is a peace of shit unable to read a fucking audio CD)
 sudo add-apt-repository ppa:ubuntuhandbook1/apps
