@@ -34,7 +34,7 @@ sudo dpkg -i "$TEMP_DEB"
 rm -f "$TEMP_DEB"
 
 #Install some basic extensions
-sudo apt install gnome-shell-extensions
+sudo apt install gnome-shell-extensions gnome-shell-extension-dashtodock
 
 #Install the Tweaks System Menu to integrate Tweaks with the system
 cd /tmp
@@ -48,7 +48,7 @@ killall -3 gnome-shell
 sudo apt install gnome-tweaks
 
 #Install the GNOME extensions app for all users
-sudo flatpak install org.gnome.Extensions
+sudo apt install gnome-shell-extension-prefs
 
 #Enable some basic extensions
 gnome-extensions enable user-theme@gnome-shell-extensions.gcampax.github.com
@@ -63,6 +63,7 @@ sudo apt autoremove --purge gnome-music
 #Pre-install the repeat-one-song plugin
 cd /tmp
 git clone https://github.com/edumucelli/repeat-one-song.git
+mkdir ~/.local/share/rhythmbox
 mkdir ~/.local/share/rhythmbox/plugins
 mkdir ~/.local/share/rhythmbox/plugins/repeat-one-song
 mv repeat-one-song/README.md ~/.local/share/rhythmbox/plugins/repeat-one-song
