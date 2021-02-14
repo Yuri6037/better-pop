@@ -36,10 +36,37 @@ rm -f "$TEMP_DEB"
 #Install some basic extensions
 sudo apt install gnome-shell-extensions gnome-shell-extension-dashtodock
 
+#Install proper styling for dash to dock
+sudo cp stylesheet.css /usr/share/gnome-shell/extensions/dash-to-dock@micxgx.gmail.com/
+
+#Install arc menu extension
+cp arcmenuarcmenu.com.v5.shell-extension.zip /tmp
+cd /tmp
+sudo mkdir /usr/share/gnome-shell/extensions/arcmenu@arcmenu.com
+sudo unzip arcmenuarcmenu.com.v5.shell-extension.zip -d /usr/share/gnome-shell/extensions/arcmenu@arcmenu.com
+sudo chmod -R 755 /usr/share/gnome-shell/extensions/arcmenu@arcmenu.com
+cd -
+
+#Install hide minimized extension
+cp hide-minimizeddanigm.net.v2.shell-extension.zip /tmp
+cd /tmp
+sudo mkdir /usr/share/gnome-shell/extensions/hide-minimized@danigm.net
+sudo unzip hide-minimizeddanigm.net.v2.shell-extension.zip -d /usr/share/gnome-shell/extensions/hide-minimized@danigm.net
+sudo chmod -R 755 /usr/share/gnome-shell/extensions/hide-minimized@danigm.net
+cd -
+
 #Install the Tweaks System Menu to integrate Tweaks with the system
 cd /tmp
 wget https://github.com/F-i-f/tweaks-system-menu/releases/latest/download/tweaks-system-menu@extensions.gnome-shell.fifi.org.v11.shell-extension.zip
-sudo unzip tweaks-system-menu@extensions.gnome-shell.fifi.org.v11.shell-extension.zip -d /usr/share/gnome-shell/extensions/tweaks-system-menu@extensions.gnome-shell.fifi.org.v11.shell-extension
+sudo unzip tweaks-system-menu@extensions.gnome-shell.fifi.org.v11.shell-extension.zip -d /usr/share/gnome-shell/extensions/tweaks-system-menu@extensions.gnome-shell.fifi.org
+sudo chmod -R 755 /usr/share/gnome-shell/extensions/tweaks-system-menu@extensions.gnome-shell.fifi.org
+
+#Install the Extensions System Menu to integrate Extensions with the system
+cd /tmp
+wget https://github.com/Leleat/extensions-in-system-menu/archive/master.zip
+unzip master.zip
+sudo cp -r extensions-in-system-menu-master/extensions-in-system-menu@leleat-on-github /usr/share/gnome-shell/extensions
+rm -rf extensions-in-system-menu-master
 
 #Restart gnome shell
 killall -3 gnome-shell
@@ -51,8 +78,8 @@ sudo apt install gnome-tweaks
 sudo apt install gnome-shell-extension-prefs
 
 #Enable some basic extensions
-gnome-extensions enable user-theme@gnome-shell-extensions.gcampax.github.com
-gnome-extensions enable tweaks-system-menu@extensions.gnome-shell.fifi.org.v11.shell-extension
+#gnome-extensions enable user-theme@gnome-shell-extensions.gcampax.github.com
+#gnome-extensions enable tweaks-system-menu@extensions.gnome-shell.fifi.org.v11.shell-extension
 
 #Install rythmbox as default media player (GNOME Music is a peace of shit unable to read a fucking audio CD)
 sudo add-apt-repository ppa:ubuntuhandbook1/apps
@@ -61,14 +88,14 @@ sudo apt install rhythmbox
 sudo apt autoremove --purge gnome-music
 
 #Pre-install the repeat-one-song plugin
-cd /tmp
-git clone https://github.com/edumucelli/repeat-one-song.git
-mkdir ~/.local/share/rhythmbox
-mkdir ~/.local/share/rhythmbox/plugins
-mkdir ~/.local/share/rhythmbox/plugins/repeat-one-song
-mv repeat-one-song/README.md ~/.local/share/rhythmbox/plugins/repeat-one-song
-mv repeat-one-song/*.png ~/.local/share/rhythmbox/plugins/repeat-one-song
-mv repeat-one-song/icon.svg ~/.local/share/rhythmbox/plugins/repeat-one-song
-mv repeat-one-song/repeat* ~/.local/share/rhythmbox/plugins/repeat-one-song
-cd ~
-rm -rf /tmp/repeat-one-song
+#cd /tmp
+#git clone https://github.com/edumucelli/repeat-one-song.git
+#mkdir ~/.local/share/rhythmbox
+#mkdir ~/.local/share/rhythmbox/plugins
+#mkdir ~/.local/share/rhythmbox/plugins/repeat-one-song
+#mv repeat-one-song/README.md ~/.local/share/rhythmbox/plugins/repeat-one-song
+#mv repeat-one-song/*.png ~/.local/share/rhythmbox/plugins/repeat-one-song
+#mv repeat-one-song/icon.svg ~/.local/share/rhythmbox/plugins/repeat-one-song
+#mv repeat-one-song/repeat* ~/.local/share/rhythmbox/plugins/repeat-one-song
+#cd ~
+#rm -rf /tmp/repeat-one-song

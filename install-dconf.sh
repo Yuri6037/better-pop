@@ -19,31 +19,7 @@
 # LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-#Install requirements
-sudo apt install sassc
-
-#Download and inject OSX theme
-git clone https://github.com/vinceliuice/WhiteSur-gtk-theme.git
-cd WhiteSur-gtk-theme
-./install.sh -i void -p 25 -c light --nautilus-use-colors
-sudo ./install.sh -g -c light
-
-#Align system to use theme
-sudo mkdir /etc/skel/.themes
-sudo cp -r ~/.themes/WhiteSur-* /etc/skel/.themes/
-sudo mkdir /etc/skel/.local
-sudo mkdir /etc/skel/.local/share
-sudo mkdir /etc/skel/.local/share/icons
-sudo cp -r ~/.local/share/icons/WhiteSur* /etc/skel/.local/share/icons/
-
-#Inject flatpak
-sudo flatpak override --filesystem=~/.themes
-flatpak override --user --filesystem=~/.themes
-
-#Cleanup
-sudo rm -rf /usr/share/themes/WhiteSur*
-cd ..
-rm -rf WhiteSur-gtk-theme
-
-#Uninstall requirements
-sudo apt purge sassc
+sudo cp user /etc/dconf/profile
+sudo mkdir /etc/dconf/db/local.d
+sudo cp 00-my /etc/dconf/db/local.d
+sudo dconf update
