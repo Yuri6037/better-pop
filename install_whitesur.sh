@@ -25,8 +25,9 @@ sudo apt install sassc
 #Download and inject OSX theme
 git clone https://github.com/vinceliuice/WhiteSur-gtk-theme.git
 cd WhiteSur-gtk-theme
-./install.sh -i void -p 25 -c light --nautilus-use-colors
-sudo ./install.sh -g -c light
+export LIB_INSTALL_IMPORTED="true"
+./install.sh -i void -p 30 -c light -N mojave
+sudo ./tweaks.sh -g -c light
 
 #Align system to use theme
 sudo mkdir /etc/skel/.themes
@@ -46,4 +47,5 @@ cd ..
 rm -rf WhiteSur-gtk-theme
 
 #Uninstall requirements
-sudo apt purge sassc
+sudo apt purge sassc imagemagick libxml2-utils dialog libglib2.0-dev-bin
+sudo apt autoremove --purge
