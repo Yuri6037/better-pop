@@ -47,5 +47,5 @@ cd ..
 rm -rf WhiteSur-gtk-theme
 
 #Uninstall requirements
-sudo apt purge sassc imagemagick libxml2-utils dialog libglib2.0-dev-bin
+sudo apt purge sassc imagemagick libxml2-utils dialog libglib2.0-dev-bin imagemagick-6-common imagemagick-6.q16
 sudo apt autoremove --purge
